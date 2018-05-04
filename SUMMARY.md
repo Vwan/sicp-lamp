@@ -4,7 +4,7 @@ Table of Contents
 
 * [1 Building Abstractions with Procedures](README.md)
   * [1.1 The Elements of Programming.md](ch1/README.md)
-  	* [1.1.1 Expressions](ch1/1.1TheElementsofProgramming.md)
+  	* [1.1 Expressions](https://github.com/Vwan/sicp-lamp/blob/master/ch1/1.1%20The%20Elements%20of%20Programming.md)
   	* 1.1.2 Naming and the Environment]()
   	* 1.1.3 Evaluating Combinations]()
   	* 1.1.4 Compound Procedures]()
