@@ -1,8 +1,5 @@
 # Summary
 
-* [CH1: Build Abstractions with Procedures](README.md)
-  * [1.1]
-
 Table of Contents
 
 * [1 Building Abstractions with Procedures](README.md)
@@ -13,7 +10,7 @@ Table of Contents
   	* 1.1.4 Compound Procedures]()
   	* 1.1.5 The Substitution Model for Procedure Application]()
   	* 1.1.6 Conditional Expressions and Predicates]()
-  	* 1.1.7 Example: Square Roots by Newtonâ€™s Method]()
+  	* 1.1.7 Example: Square Roots by Newton’s Method]()
   	* 1.1.8 Procedures as Black-Box Abstractions]()
   * [1.2 Procedures and the Processes They Generate](README.md)
   	* 1.2.1 Linear Recursion and Iteration]()
@@ -73,66 +70,69 @@ Table of Contents
   * [3.5 Streams](README.md)
   	* 3.5.1 Streams Are Delayed Lists]()
   	* 3.5.2 Infinite Streams]()
-  	* 3.5.3 Exploiting the Stream Paradigm]()
-  	* 3.5.4 Streams and Delayed Evaluation]()
-  	* 3.5.5 Modularity of Functional Programs and Modularity of Objects]()
+  	* 3.5.3 Exploiting the Stream Paradigm
+  	* 3.5.4 Streams and Delayed Evaluation
+  	* 3.5.5 Modularity of Functional Programs and Modularity of Objects
 * [4 Metalinguistic Abstraction](README.md)
   * [4.1 The Metacircular Evaluator](README.md)
-  	* 4.1.1 The Core of the Evaluator]()
-  	* 4.1.2 Representing Expressions]()
-  	* 4.1.3 Evaluator Data Structures]()
-  	* 4.1.4 Running the Evaluator as a Program]()
-  	* 4.1.5 Data as Programs]()
-  	* 4.1.6 Internal Definitions]()
-  	* 4.1.7 Separating Syntactic Analysis from Execution]()
-  * [4.2 Variations on a Scheme â€” Lazy Evaluation](README.md)
-  	* 4.2.1 Normal Order and Applicative Order]()
-  	* 4.2.2 An Interpreter with Lazy Evaluation]()
-  	* 4.2.3 Streams as Lazy Lists]()
-  * [4.3 Variations on a Scheme â€” Nondeterministic Computing](README.md)
-  	* 4.3.1 Amb and Search]()
-  	* 4.3.2 Examples of Nondeterministic Programs]()
-  	* 4.3.3 Implementing the Amb Evaluator]()
+  	* 4.1.1 The Core of the Evaluator
+  	* 4.1.2 Representing Expressions
+  	* 4.1.3 Evaluator Data Structures
+  	* 4.1.4 Running the Evaluator as a Program
+  	* 4.1.5 Data as Programs
+  	* 4.1.6 Internal Definitions
+  	* 4.1.7 Separating Syntactic Analysis from Execution
+  * [4.2 Variations on a Scheme — Lazy Evaluation](README.md)
+  	* 4.2.1 Normal Order and Applicative Order
+  	* 4.2.2 An Interpreter with Lazy Evaluation
+  	* 4.2.3 Streams as Lazy Lists
+  * [4.3 Variations on a Scheme — Nondeterministic Computing](README.md)
+  	* 4.3.1 Amb and Search
+  	* 4.3.2 Examples of Nondeterministic Programs
+  	* 4.3.3 Implementing the Amb Evaluator
   * [4.4 Logic Programming](README.md)
-  	* 4.4.1 Deductive Information Retrieval]()
-  	* 4.4.2 How the Query System Works]()
-  	* 4.4.3 Is Logic Programming Mathematical Logic?]()
-  	* 4.4.4 Implementing the Query System]()
-  	* 	4.4.4.1 The Driver Loop and Instantiation]()
-  	* 	4.4.4.2 The Evaluator]()
-  	* 	4.4.4.3 Finding Assertions by Pattern Matching]()
-  	* 	4.4.4.4 Rules and Unification]()
-  	* 	4.4.4.5 Maintaining the Data Base]()
-  	* 	4.4.4.6 Stream Operations]()
-  	* 	4.4.4.7 Query Syntax Procedures]()
-  	* 	4.4.4.8 Frames and Bindings]()
+  	* 4.4.1 Deductive Information Retrieval
+  	* 4.4.2 How the Query System Works
+  	* 4.4.3 Is Logic Programming Mathematical Logic?
+  	* 4.4.4 Implementing the Query System
+  	* 	4.4.4.1 The Driver Loop and Instantiation
+  	* 	4.4.4.2 The Evaluator
+  	* 	4.4.4.3 Finding Assertions by Pattern Matching
+  	* 	4.4.4.4 Rules and Unification
+  	* 	4.4.4.5 Maintaining the Data Base
+  	* 	4.4.4.6 Stream Operations
+  	* 	4.4.4.7 Query Syntax Procedures
+  	* 	4.4.4.8 Frames and Bindings
 * [5 Computing with Register Machines](README.md)
   * [5.1 Designing Register Machines](README.md)
-  	* 5.1.1 A Language for Describing Register Machines]()
-  	* 5.1.2 Abstraction in Machine Design]()
-  	* 5.1.3 Subroutines]()
-  	* 5.1.4 Using a Stack to Implement Recursion]()
-  	* 5.1.5 Instruction Summary]()
+  	* 5.1.1 A Language for Describing Register Machines
+  	* 5.1.2 Abstraction in Machine Design
+  	* 5.1.3 Subroutines
+  	* 5.1.4 Using a Stack to Implement Recursion
+  	* 5.1.5 Instruction Summary
   * [5.2 A Register-Machine Simulator](README.md)
-  	* 5.2.1 The Machine Model]()
-  	* 5.2.2 The Assembler]()
-  	* 5.2.3 Generating Execution Procedures for Instructions]()
-  	* 5.2.4 Monitoring Machine Performance]()
+  	* 5.2.1 The Machine Model
+  	* 5.2.2 The Assembler
+  	* 5.2.3 Generating Execution Procedures for Instructions
+  	* 5.2.4 Monitoring Machine Performance
   * [5.3 Storage Allocation and Garbage Collection](README.md)
-  	* 5.3.1 Memory as Vectors]()
-  	* 5.3.2 Maintaining the Illusion of Infinite Memory]()
+  	* 5.3.1 Memory as Vectors
+  	* 5.3.2 Maintaining the Illusion of Infinite Memory
   * [5.4 The Explicit-Control Evaluator](README.md)
-  	* 5.4.1 The Core of the Explicit-Control Evaluator]()
-  	* 5.4.2 Sequence Evaluation and Tail Recursion]()
-  	* 5.4.3 Conditionals, Assignments, and Definitions]()
-  	* 5.4.4 Running the Evaluator]()
+  	* 5.4.1 The Core of the Explicit-Control Evaluator
+  	* 5.4.2 Sequence Evaluation and Tail Recursion
+  	* 5.4.3 Conditionals, Assignments, and Definitions
+  	* 5.4.4 Running the Evaluator
   * [5.5 Compilation](README.md)
-  	* 5.5.1 Structure of the Compiler]()
-  	* 5.5.2 Compiling Expressions]()
-  	* 5.5.3 Compiling Combinations]()
-  	* 5.5.4 Combining Instruction Sequences]()
-  	* 5.5.5 An Example of Compiled Code]()
-  	* 5.5.6 Lexical Addressing]()
-  	* 5.5.7 Interfacing Compiled Code to the Evaluator]()
-
-
+  	* 5.5.1 Structure of the Compiler
+  	* 5.5.2 Compiling Expressions
+  	* 5.5.3 Compiling Combinations
+  	* 5.5.4 Combining Instruction Sequences
+  	* 5.5.5 An Example of Compiled Code
+  	* 5.5.6 Lexical Addressing
+  	* 5.5.7 Interfacing Compiled Code to the Evaluator
+References
+List of Exercises
+List of Figures
+Term Index
+Colophon
