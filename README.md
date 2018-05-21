@@ -21,10 +21,29 @@
 >
 > —John Locke, An Essay Concerning Human Understanding(1690)
 
-**本书地址：**
+# Scheme Environment
+
+按照这个教程[Scheme 编程环境的设置](http://www.yinwang.org/blog-cn/2013/04/11/scheme-setup)，配好后，打开一个sample scm文件：
+
+```
+(define s 123)
+s
+```
+
+按F5运行报错：
+
+```Symbol's function definition is void: fine```
+
+毫无头绪现在
+
+# Emacs 基本操作
+
+M x: alt + x
+
+# **本书地址：**
 
 [Structure and Interpretation of Computer Programs, 2e: Top](file://localhost/Users/wanjia/Library/Application%20Support/Zotero/Profiles/h6gwndqs.default/zotero/storage/98VGGP3G/index.html)
 
-**参考书：**
+# **参考书：**
 
 [SICP in Python | Pedro Kroger](https://pedrokroger.net/sicp-python/)
