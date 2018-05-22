@@ -4,26 +4,26 @@ Table of Contents
 
 * [1 Building Abstractions with Procedures](README.md)
   * [1.1 The Elements of Programming.md](ch1/README.md)
-  	* [1.1 Expressions](ch1/1.1TheElementsofProgramming.md)
-  	* 1.1.2 Naming and the Environment]()
-  	* 1.1.3 Evaluating Combinations]()
-  	* 1.1.4 Compound Procedures]()
-  	* 1.1.5 The Substitution Model for Procedure Application]()
-  	* 1.1.6 Conditional Expressions and Predicates]()
-  	* 1.1.7 Example: Square Roots by Newton’s Method]()
-  	* 1.1.8 Procedures as Black-Box Abstractions]()
+    * [1.1 Expressions](ch1/1.1TheElementsofProgramming.md)
+    * 1.1.2 Naming and the Environment]()
+    * 1.1.3 Evaluating Combinations]()
+    * 1.1.4 Compound Procedures]()
+    * 1.1.5 The Substitution Model for Procedure Application]()
+    * 1.1.6 Conditional Expressions and Predicates]()
+    * 1.1.7 Example: Square Roots by Newton’s Method]()
+    * 1.1.8 Procedures as Black-Box Abstractions]()
   * [1.2 Procedures and the Processes They Generate](README.md)
-  	* 1.2.1 Linear Recursion and Iteration]()
-  	* 1.2.2 Tree Recursion]()
-  	* 1.2.3 Orders of Growth]()
-  	* 1.2.4 Exponentiation]()
-  	* 1.2.5 Greatest Common Divisors]()
-  	* 1.2.6 Example: Testing for Primality]()
+    * 1.2.1 Linear Recursion and Iteration]()
+    * 1.2.2 Tree Recursion]()
+    * 1.2.3 Orders of Growth]()
+    * 1.2.4 Exponentiation]()
+    * 1.2.5 Greatest Common Divisors]()
+    * 1.2.6 Example: Testing for Primality]()
   * [1.3 Formulating Abstractions with Higher-Order Procedures](README.md)
-  	* 1.3.1 Procedures as Arguments]()
-  	* 1.3.2 Constructing Procedures Using Lambda]()
-  	* 1.3.3 Procedures as General Methods]()
-  	* 1.3.4 Procedures as Returned Values]()
+    * 1.3.1 Procedures as Arguments]()
+    * 1.3.2 Constructing Procedures Using Lambda]()
+    * 1.3.3 Procedures as General Methods]()
+    * 1.3.4 Procedures as Returned Values]()
 * [2 Building Abstractions with Data](README.md)
   * [2.1 Introduction to Data Abstraction](README.md)
   	* 2.1.1 Example: Arithmetic Operations for Rational Numbers]()
@@ -95,44 +95,51 @@ Table of Contents
   	* 4.4.2 How the Query System Works
   	* 4.4.3 Is Logic Programming Mathematical Logic?
   	* 4.4.4 Implementing the Query System
-  	* 	4.4.4.1 The Driver Loop and Instantiation
-  	* 	4.4.4.2 The Evaluator
-  	* 	4.4.4.3 Finding Assertions by Pattern Matching
-  	* 	4.4.4.4 Rules and Unification
-  	* 	4.4.4.5 Maintaining the Data Base
-  	* 	4.4.4.6 Stream Operations
-  	* 	4.4.4.7 Query Syntax Procedures
-  	* 	4.4.4.8 Frames and Bindings
+  		 	4.4.4.1 The Driver Loop and Instantiation
+  		 	4.4.4.2 The Evaluator
+  		 	4.4.4.3 Finding Assertions by Pattern Matching
+  		 	4.4.4.4 Rules and Unification
+  		 	4.4.4.5 Maintaining the Data Base
+  		 	4.4.4.6 Stream Operations
+  		 	4.4.4.7 Query Syntax Procedures
+  		 	4.4.4.8 Frames and Bindings
 * [5 Computing with Register Machines](README.md)
   * [5.1 Designing Register Machines](README.md)
-  	* 5.1.1 A Language for Describing Register Machines
-  	* 5.1.2 Abstraction in Machine Design
-  	* 5.1.3 Subroutines
-  	* 5.1.4 Using a Stack to Implement Recursion
-  	* 5.1.5 Instruction Summary
+    * 5.1.1 A Language for Describing Register Machines
+    * 5.1.2 Abstraction in Machine Design
+    * 5.1.3 Subroutines
+    * 5.1.4 Using a Stack to Implement Recursion
+    * 5.1.5 Instruction Summary
   * [5.2 A Register-Machine Simulator](README.md)
-  	* 5.2.1 The Machine Model
-  	* 5.2.2 The Assembler
-  	* 5.2.3 Generating Execution Procedures for Instructions
-  	* 5.2.4 Monitoring Machine Performance
+    * 5.2.1 The Machine Model
+    * 5.2.2 The Assembler
+    * 5.2.3 Generating Execution Procedures for Instructions
+    * 5.2.4 Monitoring Machine Performance
   * [5.3 Storage Allocation and Garbage Collection](README.md)
-  	* 5.3.1 Memory as Vectors
-  	* 5.3.2 Maintaining the Illusion of Infinite Memory
+    * 5.3.1 Memory as Vectors
+    * 5.3.2 Maintaining the Illusion of Infinite Memory
   * [5.4 The Explicit-Control Evaluator](README.md)
-  	* 5.4.1 The Core of the Explicit-Control Evaluator
-  	* 5.4.2 Sequence Evaluation and Tail Recursion
-  	* 5.4.3 Conditionals, Assignments, and Definitions
-  	* 5.4.4 Running the Evaluator
+    * 5.4.1 The Core of the Explicit-Control Evaluator
+    * 5.4.2 Sequence Evaluation and Tail Recursion
+    * 5.4.3 Conditionals, Assignments, and Definitions
+    * 5.4.4 Running the Evaluator
   * [5.5 Compilation](README.md)
-  	* 5.5.1 Structure of the Compiler
-  	* 5.5.2 Compiling Expressions
-  	* 5.5.3 Compiling Combinations
-  	* 5.5.4 Combining Instruction Sequences
-  	* 5.5.5 An Example of Compiled Code
-  	* 5.5.6 Lexical Addressing
-  	* 5.5.7 Interfacing Compiled Code to the Evaluator
-References
-List of Exercises
-List of Figures
-Term Index
-Colophon
+    * 5.5.1 Structure of the Compiler
+
+    * 5.5.2 Compiling Expressions
+
+    * 5.5.3 Compiling Combinations
+
+    * 5.5.4 Combining Instruction Sequences
+
+    * 5.5.5 An Example of Compiled Code
+
+    * 5.5.6 Lexical Addressing
+
+    * 5.5.7 Interfacing Compiled Code to the Evaluator
+
+      References
+      List of Exercises
+      List of Figures
+      Term Index
+      Colophon
