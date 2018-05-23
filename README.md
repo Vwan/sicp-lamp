@@ -62,6 +62,27 @@ require是导入模块吗，只用一个单引号，实在是不适应。
 
 M x: alt + x
 
+# Schema 语法
+
+## 函数返回值
+
+scheme没有显性的return，函数中最后一个执行语句的值便是返回值。
+
+## 坑
+
+```(define (square x) ( * x  x))```
+
+一直报错说square未定义。原因是：( * x x)， * 和(之间多了个空格。。。
+
+## define is not allowed in an expression context
+
+```
+(define (sum x y z) (
+				       (define min x)....
+```
+
+运行时报错，查了一下[functional programming - Error with define in Racket - Stack Overflow](https://stackoverflow.com/questions/16221336/error-with-define-in-racket)，函数体中不能直接用define，需要wrap一下，如用let, begin之类的。还不太明白为什么如此设计
+
 # **本书地址：**
 
 [Structure and Interpretation of Computer Programs, 2e: Top](file://localhost/Users/wanjia/Library/Application%20Support/Zotero/Profiles/h6gwndqs.default/zotero/storage/98VGGP3G/index.html)
