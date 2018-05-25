@@ -1,0 +1,5 @@
+(define (>= x y) 
+  (or (> x y) (= x y)))
+
+(define x 5)
+(define y 6)
