@@ -18,7 +18,6 @@ def square_iter(x, guess):
         print("++++", guess)
         square_iter(x, guess)
 
-
 def sqrt(x):
     return square_iter(x, 1.0)
 
