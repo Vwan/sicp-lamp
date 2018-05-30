@@ -3,8 +3,8 @@
 Table of Contents
 
 * [1 Building Abstractions with Procedures](README.md)
-  * [1.1 The Elements of Programming.md](ch1/README.md)
-    * [1.1 Expressions](ch1/1.1TheElementsofProgramming.md)
+  * [1.1 The Elements of Programming.md](ch1/1.1TheElementsofProgramming.md)
+    * 1.1 Expressions
     * 1.1.2 Naming and the Environment]()
     * 1.1.3 Evaluating Combinations]()
     * 1.1.4 Compound Procedures]()
@@ -12,7 +12,7 @@ Table of Contents
     * 1.1.6 Conditional Expressions and Predicates]()
     * 1.1.7 Example: Square Roots by Newton’s Method]()
     * 1.1.8 Procedures as Black-Box Abstractions]()
-  * [1.2 Procedures and the Processes They Generate](README.md)
+  * [1.2 Procedures and the Processes They Generate](ch1/1.2Procedure&Process.md)
     * 1.2.1 Linear Recursion and Iteration]()
     * 1.2.2 Tree Recursion]()
     * 1.2.3 Orders of Growth]()
