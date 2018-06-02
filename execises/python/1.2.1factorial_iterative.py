@@ -1,6 +1,5 @@
 def factorial(n):
 	def iter(result, count, max):
-		print(count, max)
 		if count > max:
 			return result
 		else:

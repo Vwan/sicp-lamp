@@ -4,6 +4,4 @@ def factorial(n):
 		result *= i
 	return result
 
-for i in range(1, 10):
-	f = factorial(i)
-	print(f)
+print(factorial(5))
