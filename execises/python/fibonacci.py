@@ -6,6 +6,8 @@ def fibonacci(n):
     elif n == 1:
         return 1
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
+        a = fibonacci(n-1)
+        b = fibonacci(n-2)
+        return a + b
 
 assert fibonacci(20)== 6765
