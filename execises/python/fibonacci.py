@@ -1,13 +1,10 @@
 '''[Fibonacci number - Wikipedia](https://en.wikipedia.org/wiki/Fibonacci_number)'''
 
 def fibonacci(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
+    if n < 2 :
+        return n
     else:
-        a = fibonacci(n-1)
-        b = fibonacci(n-2)
-        return a + b
+        return fibonacci(n-1) + fibonacci(n-2)
 
+print(fibonacci(1))
 assert fibonacci(20)== 6765
