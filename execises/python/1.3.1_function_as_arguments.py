@@ -7,6 +7,13 @@ def itself(a):
 def sum(a, b):
     return a + b
 
+def sum_loop(a, b):
+    ''' use loop to calc sum of numbers between a and b'''
+    total = 0
+    for i in range(a, b+1):
+        total += i
+    return total
+
 def sum_ints(a, b):
     '''# calcualte sum of numbers in between a and b'''
     if a > b:
