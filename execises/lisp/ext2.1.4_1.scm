@@ -10,8 +10,14 @@
     (make-interval (min p1 p2 p3 p4)
 		   (max p1 p2 p3 p4))))
 
+; exercise 2.10 signal an error when denom is zero
 (define (div-interval x y)
-(mul-interval
+  (cond
+   ((zero? (upper-bound y) (error "cannot be zero") )
+    ((zero? (lower-bound y) (error "cannot be zero")))
+    )
+
+   mul-interval
 x
 (make-interval (/ 1.0 (upper-bound y))
 	       (/ 1.0 (lower-bound y)))))
