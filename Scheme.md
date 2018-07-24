@@ -1,10 +1,41 @@
-# Scheme Notes
+#  Notes from book <Yet Another Scheme Tutorial>
 
 ## Comments
 
 **;** comment out a line
 
 **\#;** comment out a whole procedure
+
+## 加减乘除
+
+lisp 中的 / 返回的是一个分子/分母的表达形式，而非真正的除法后得到的“浮点数”.
+
+```
+(/ 2 6) 返回的是 1/3
+
+这种 1/3的表示形式倒也方便
+```
+
+如果要获得除后的结果
+
+```
+(exact->inexact (/ 2 6))
+```
+
+## 指数、对数
+
+```
+(expt 2 3): 2 的 三次方
+```
+
+```
+(log 100 10): 以10为底，100的对数
+(log 100)
+```
+
+
+
+# Notes from book <The Little Schemer>
 
 ## atom
 
