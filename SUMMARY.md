@@ -10,11 +10,7 @@ Table of Contents
 * [2 Building Abstractions with Data](2BuildingAbstractionswithData.md)
 
   * [2.1 Introduction to Data Abstraction](2.1IntroductionToDataAbstract.md)
-  * [2.2 Hierarchical Data and the Closure Property](README.md)
-    * 2.2.1 Representing Sequences]()
-    * 2.2.2 Hierarchical Structures]()
-    * 2.2.3 Sequences as Conventional Interfaces]()
-    * 2.2.4 Example: A Picture Language]()
+  * [2.2 Hierarchical Data and the Closure Property(2.2HierarchicalDataandtheClosureProperty)
   * [2.3 Symbolic Data](README.md)
     * 2.3.1 Quotation]()
     * 2.3.2 Example: Symbolic Differentiation]()
