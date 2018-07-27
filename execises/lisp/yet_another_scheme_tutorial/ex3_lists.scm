@@ -24,6 +24,10 @@
 (cdr (cons 3 (cons 2 (cons 1 '()))))
 
 (list 1 2)
+(cons 1 (cons 2 '()))
 (list 0)
+
+(list 1 2 3 4)
+(list '(1 2 3 4))
 (list '(1 2) '(3 4))
 (list)
