@@ -36,10 +36,9 @@ def prime_sum(n):
     return result
 
 result = prime_sum(6)
-#print(result)
+print(result)
 
 def prime_sum_refined(n):
-    result = final_result = []
 
     """
     Given a positive integer n, find all ordered pairs of distinct positive
@@ -51,19 +50,30 @@ def prime_sum_refined(n):
     """
 
     # generate a list containing all the possible pair of (i,j) where i<j<=n
-    lx = range(1, n+1)
-    ly = lambda i: range(i+1, n+1)
-    for x in lx:
-        for y in ly(x):
-            result.append((x, y))
+    def generate_pairs(n):
+        result = []
+        lx = range(1, n+1)
+        ly = lambda i: range(i+1, n+1)
+        for x in lx:
+            for y in ly(x):
+                result.append((x, y))
+        return result
 
-    # filter out x+y is prime
-    for res in result:
-        x, y = res
-        print(x, y)
-        if is_prime(x+y):
-            final_result.append(res)
-    return final_result
+    # filter out if x+y is prime
+    def filter_prime_pairs(result):
+        final_result = []
+        for i in range(len(result)): # for res in result is inifinit loop, why?
+            res = result[i]
+            x, y = res
+            print(x, y, is_prime(x+y))
+            if is_prime(x+y):
+                final_result.append(res)
+                print("-----", final_result)
+        return final_result
+
+    return filter_prime_pairs(generate_pairs(n))
 
 result = prime_sum_refined(6)
 print(result)
+
+assert prime_sum(6) == prime_sum_refined(6)
