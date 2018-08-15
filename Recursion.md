@@ -200,12 +200,101 @@ print("output after return is : ", output1)
 
 ### 运行结果
 
-出问题了，不明白，为什么返回前和返回后输出不一样呢？这中间没有其他操作了啊。
+出问题了，不明白，为什么返回前和返回后输出不一样呢？这中间没有其他操作了啊。[原因：我以为的"print("output before return is ", output)" 这一行其实并不是函数最终的返回行，应该是在那几个递归行呢]
 
 ```
 output before return is  ['', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '1.2', '1.2.1', '1.2.2', '1.2.3']
 output after return is :  ['', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '1.2', '1.2.1', '1.2.2', '1.2.3', '', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '1.2', '1.2.1', '1.2.2', '1.2.3', '', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '1.2', '1.2.1', '1.2.2', '1.2.3']
 
+```
+
+#### [@thxiami的debug调试结果](https://github.com/DebugUself/du4proto/commit/c2ba6ee4a59789ba4326496ffd99839d744d75f5#commitcomment-30059252)
+
+```
+# 为了减低debug难度，把数据的嵌套层数缩减，此时原来问题仍然存在，但是debug难度降低
+treedata = [{
+    'label': '1',
+    'children': [{
+        'label': '1.1',
+        'children': '',
+    },
+        {
+        'label': '1.2',
+        'children': '',
+    },
+    ]
+}]
+
+
+def extract_labels(treedata, output):
+    if type(treedata) is list:
+        if len(treedata) == 1:
+            return extract_labels(treedata[0], output)
+        else:
+            return extract_labels(treedata[0], output) + extract_labels(treedata[1:], output)
+    elif type(treedata) is dict:
+        label = treedata.get('label')
+        output.append(label)
+
+        children = treedata.get('children')
+        if children and type(children) is list:
+            output1 = extract_labels(children[0], output)
+            output2 = extract_labels(children[1:], output)
+            
+            # 明确两个信息：
+            # 1、操作的 output 始终对应于内存中同一块地址，任何时候通过任意途径修改了 output，在其他地方引用的 output 也会发生对应变化
+            # 2、output1 和 output2 都是 return output 得到的，也就是 output1 和 output2 都是 output 的引用，二者对应同一块内存地址
+            # 可以通过下面表达式验证
+            print('**debug id(output1) == id(output):', id(output1) == id(output))
+            print('**debug id(output2 == id(output):', id(output2) == id(output))
+            
+            # 接着理清递归的过程
+            # 先进行递归操作 output 得到 output1，此时 output=output1 = ['', '1', '1.1']
+            # 再进行递归操作 output 得到 output2，操作前 output = ['', '1', '1.1']，操作后 output2 = output = ['', '1', '1.1', '1.2']
+            # 此时 output1 其实就是 output 的引用，所以 output1 = ['', '1', '1.1', '1.2']
+            # 最后相当于 output + output
+            #          ['', '1', '1.1', '1.2'] + ['', '1', '1.1', '1.2']
+            return output1 + output2
+            # return extract_labels(children[0], output) + extract_labels(children[1:], output)
+
+    print("output before return is ", output)
+    return output
+
+
+def extract(treedata):
+    return extract_labels(treedata, [''])
+
+
+final_output = extract(treedata)
+print("output after return is : ", final_output)
+print的结果
+
+output before return is  ['', '1', '1.1']
+output before return is  ['', '1', '1.1', '1.2']
+**debug id(output1) == id(output): True
+**debug id(output2 == id(output): True
+output after return is :  ['', '1', '1.1', '1.2', '', '1', '1.1', '1.2']
+```
+
+#### 解决方案
+
+原因找着了，现在就是如何解决的问题了，按thxiami的提示，两种方法：
+
+- 从拷贝而非引用的角度探索. 拷贝又分为深拷贝和浅拷贝,目前我们的情况深拷贝和浅拷贝没有区别.
+- 始终操作同一个output，并返回
+
+个人感觉始终操作同一个output应该可行，现在看出错点主要是在：
+
+```
+output1 = extract_labels(children[0], output)
+output2 = extract_labels(children[1:], output)
+```
+
+output1 和 output2 都指向了 output, 就是说， extract_labels(children[0], output) 的返回结果其实并没有传入后面的操作extract_labels(children[1:], output)，只需要改成这样即可：
+
+```
+output1 = extract_labels(children[0], output)
+return extract_labels(children[1:], output1)
 ```
 
 ### 进一步思考
@@ -231,6 +320,96 @@ output after return is :  ['', '1', '1.1', '1.1.1', '1.1.2', '1.1.3', '', '1', '
    print("output is : ", output1)
    ```
 
+   看了thxiami同学的实现，思路差不多，但是比我的专业多多了，先后两版：
+
+   **版本1**：
+
+   ```
+   def get_label(des_ls, data_ls):
+       if not isinstance(data_ls, list):
+           print("return")
+           return
+   
+       for i in data_ls:
+           print("*"*20)
+           print("**debug data['children']:", i['children'])
+           print("**debug data['label']:", i['label'])
+           print("**debug type(data['children']", type(i['children']))
+   
+           des_ls.append(i['label'])
+           if 'children' in i.keys():
+               get_label(des_ls, i['children'])
+   
+   
+   if __name__ == '__main__':
+       des_ls = []
+       get_label(des_ls, treedata)
+       print("des_ls:", des_ls)
+   ```
+
+   **版本2:**
+
+   改进：
+   1、只用传 需要解析的 treedata，函数的入口更简单，只用关心传什么
+   2、解析完生成的list会 return 回来，函数的出口更明确，不像之前那样不 return 东西，只是在内部隐式操作。
+
+   ```
+   def get_label(data_ls, des_ls=None):
+       if des_ls is None:
+           des_ls = []
+   
+       if not isinstance(data_ls, list):
+           print("return")
+           return
+   
+       for i in data_ls:
+           print("*"*20)
+           print("**debug data['children']:", i['children'])
+           print("**debug data['label']:", i['label'])
+           print("**debug type(data['children']", type(i['children']))
+   
+           des_ls.append(i['label'])
+           if 'children' in i.keys():
+               get_label(i['children'], des_ls)
+       return des_ls
+   
+   
+   if __name__ == '__main__':
+       des_ls = get_label(treedata)
+       print("des_ls:", des_ls)
+   ```
+
+    **几点收获：**
+
+   - 以后代码尽量写的专业点，不局限于写函数。
+
+   - 关于用type()还是isinstance()来判断是否列表或字典，主要区别应该在于后者可以用于继承类的判断
+
+     [python - What are the differences between type() and isinstance()? - Stack Overflow](https://stackoverflow.com/questions/1549801/what-are-the-differences-between-type-and-isinstance)
+
+   - 局部变量和全局变量
+
+     - 我的for loop实现中 output是全局变量，这种做法不妥
+     - 取而代之将output作为函数参数
+
+   - 参数默认值的使用
+
+     - 列表output需要有个初始值，不然无法append, 但傻傻的放个空列表做函数参数值的话，不好看，而且面向用户的函数入口不清爽。
+     - 给output参数一个默认值None，如果是None则在函数体内设为空。这样用户只需要传treedata即可。
+
+   ```
+   def get_label(data_ls, des_ls=None):
+       if des_ls is None:
+           des_ls = []
+   ```
+
    
 
-3. 总觉得我的这个实现很蹩脚（是不是我理论看多了僵化了，完全摒弃了for Loop)，期待看到其他实现，以及实际项目中的实现（虽然是js）。
+3. 现在的实现还能不能进一步模块化？
+
+   分析需求，主要有两步操作：
+
+   - 遍历
+   - 筛选label
+
+   如果treedata数据变化，比如增加新的节点并取出来呢？如果尽可能少的代码变动以应对不同的treedata？
