@@ -10,46 +10,50 @@ def get_image_size(image):
     #print(img.get_rect().size)
     return img.get_rect().size
 
-def paint(func):
+def base(func):
     def internal(image, **kargs):
-        offset = kargs.get('offset')
-        if offset is None:
-            offset = (0,0)
-        print("------", offset)
-        width, height = offset
-        print(width, height)
-        img = pygame.image.load(image)
-        img = func(img, offset=offset)
-#        pygame.display.set_icon(img)
-        screen.blit(img, (50 + width, 50 + height))
-        pygame.display.flip()
+        img = pygame.image.load(image)  # returns Surface
+        screen.blit(img, (0,0))
+        surf = func(img)
+
+        print(surf.get_rect().size)
+
     return internal
 
-@paint
-def beside(image, **offset):
-    return image
+@base
+def beside(img):
+    topright = img.get_rect().topright
+    new_image = img.copy()
+    screen.blit(new_image, topright)
+    width, height = img.get_rect().size
+    return pygame.Surface((2 * width, height))
 
-@paint
-def below(image, height):
-    return paint(image, (0, height))
 
-@paint
-def flip_vert(img, **kargs):
+@base
+def below(img):
+    bottomleft = img.get_rect().bottomleft
+    new_image = img.copy()
+    screen.blit(new_image, bottomleft)
+    width, height = img.get_rect().size
+    return pygame.Surface((width, height * 2))
+
+@base
+def flip_vert(img):
     return pygame.transform.flip(img, False, True)
 
-@paint
-def flip_horiz(img, **kargs):
+@base
+def flip_horiz(img):
     return pygame.transform.flip(img, True, False)
 
 if __name__ == '__main__':
-    width, height = get_image_size(image)
     running = True
     while running:
-        #paint(image)
-        beside(image, offset=(width,0))
-        below(image, offset=(0,height))
+        beside(image)
+        below(image)
         flip_horiz(image)
         flip_vert(image)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
+        pygame.display.update()
