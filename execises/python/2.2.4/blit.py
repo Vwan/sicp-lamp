@@ -13,29 +13,30 @@ def get_image_size(image):
 def base(func):
     def internal(image, **kargs):
         img = pygame.image.load(image)  # returns Surface
-        screen.blit(img, (0,0))
         surf = func(img)
-
-        print(surf.get_rect().size)
-
+        # print(surf.get_rect().size)
     return internal
 
 @base
 def beside(img):
+    width, height = img.get_rect().size
+    surf = pygame.Surface((2 * width, height))
     topright = img.get_rect().topright
     new_image = img.copy()
+    screen.blit(img, (0,0))
     screen.blit(new_image, topright)
-    width, height = img.get_rect().size
-    return pygame.Surface((2 * width, height))
+    return surf
 
 
 @base
 def below(img):
+    width, height = img.get_rect().size
+    surf = pygame.Surface((width, height * 2))
     bottomleft = img.get_rect().bottomleft
     new_image = img.copy()
+    screen.blit(img, (0, 0))
     screen.blit(new_image, bottomleft)
-    width, height = img.get_rect().size
-    return pygame.Surface((width, height * 2))
+    return surf
 
 @base
 def flip_vert(img):
@@ -50,8 +51,8 @@ if __name__ == '__main__':
     while running:
         beside(image)
         below(image)
-        flip_horiz(image)
-        flip_vert(image)
+        # flip_horiz(image)
+        # flip_vert(image)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
